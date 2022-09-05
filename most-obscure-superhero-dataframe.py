@@ -1,3 +1,4 @@
+from tkinter import Y
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as func
 from pyspark.sql.types import StructType, StructField, IntegerType, StringType
@@ -46,5 +47,3 @@ print ("These heroes have the minimum number of connections: " + str(minConnecti
 minHeroNames.show()
 
 spark.stop()
-
-
