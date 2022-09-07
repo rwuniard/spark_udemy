@@ -4,6 +4,8 @@ from pyspark.ml.regression import LinearRegression
 
 from pyspark.sql import SparkSession
 from pyspark.ml.linalg import Vectors
+# Run this script with:
+# spark-submit spark-linear-regression.py
 
 if __name__ == "__main__":
 
@@ -11,7 +13,7 @@ if __name__ == "__main__":
     spark = SparkSession.builder.appName("LinearRegression").getOrCreate()
 
     # Load up our data and convert it to the format MLLib expects.
-    inputLines = spark.sparkContext.textFile("regression.txt")
+    inputLines = spark.sparkContext.textFile("./regression.txt")
     data = inputLines.map(lambda x: x.split(",")).map(lambda x: (float(x[0]), Vectors.dense(float(x[1]))))
 
     # Convert this RDD to a DataFrame
